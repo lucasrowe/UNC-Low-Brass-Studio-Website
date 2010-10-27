@@ -1,0 +1,543 @@
+/* ===================================================================
+Note to Mike:
+This is the stylesheet for every page of the site.  If you need to change
+the style for an element you can do it here but CSS is a frustrating 
+thing to work with, so I wouldn't recommend changing much.
+=================================================================== */
+
+/*	===========================  BACKGROUND   =====================		*/
+
+html {
+	height: 100%;
+}
+
+body 
+{
+	height: 100%;
+	background-color: #9aaabc;
+	margin:0px; 
+	text-align:center;
+	background-image: url(Images/border.png);
+	background-repeat: repeat-y;
+	background-position: center;
+	font-family: 'Times New Roman', Roman, Calibri;
+}
+
+a
+{
+	color: #254D96;
+}
+a:visited
+{
+	color: #1A3668;
+}
+
+/*	==========	Tan Hack	============*/
+
+#backgroundHome
+{
+	height: 100%; 
+	margin: 0px auto 0px auto;
+	text-align: left;
+	width: 600px;
+}
+
+/*	===========================   BANNERS   =====================	*/	
+
+#banner
+{
+	width: 600px;
+	height: 60px;
+	background-image: url(Images/Banners/MainBan.png);
+	background-color: #AEBDC4;
+}
+
+#eventsubbanner
+{
+	width: 600px;
+	height: 442px;
+	background-image: url(Images/Banners/EventsBan.png); 
+	margin-top: -24px;
+	margin-bottom: -370px;
+	
+}
+
+#biosubbanner
+{
+	width: 600px;
+	height: 180px;
+	background-image: url(Images/Banners/BioBan.png);
+	margin-top: -24px;
+	margin-bottom: -5px;
+}
+
+#resourcesubbanner
+{
+	width: 600px;
+	height: 150px;
+	background-image: url(Images/Banners/ResourceBan.png);
+	margin-top: -24px;
+	margin-bottom: -25px;
+}
+
+#audiosubbanner
+{
+	width: 600px;
+	height: 150px;
+	background-image: url(Images/Banners/AudioBan.png);
+	margin-top: -24px;
+	margin-bottom: -30px;
+}
+
+/*	============================= FOOTER ====================== */
+
+#copyright 
+{
+	border-top: 1px solid #CCCCCC;
+	padding: 2px;
+	margin-right: 20px;
+	margin-left: 20px;
+	text-align: center;
+	font-size: 10px;
+}
+
+/*	============================= MAIN CONTENT ====================== */
+
+#container
+{
+	min-height: 100%;
+	margin-bottom: -20px;
+	margin-right: -2px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	background-color: #EFEFEF;
+}
+
+#contentMain
+{
+	font-size: 14px;
+	margin-bottom: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*	==== Headings Format ==== */
+
+#contentMain h1
+{
+	text-align: center;
+}
+
+#contentMain h3
+{
+	color: #254D96;
+	font-size: 18px;
+}
+
+#contentMain h4
+{
+	font-size: 14px;	
+}
+
+#contentMain h5
+{
+	font-size: 16px;	
+	color: #254D96; /*#363C8A;*/
+	margin-bottom: -10px;
+}
+
+/*	=========================== WELCOME PAGE ==================== */
+
+#welcomemsg
+{
+	margin-top: 0px;
+	font-size: 18px;
+}
+
+.home
+{
+	min-height: 755px;
+	text-align: center;
+	background-image: url(Images/Banners/HomeBan.png);	
+}
+
+.home h4
+{
+	text-align: center;
+}
+
+#studentTable
+{
+	height: 350px;
+}
+
+#currentStudents 
+{
+	float: left;
+	width: 48%;
+	padding-left: 5px;
+	padding-right: 3px;
+	height: 100%;	
+	text-align: left;
+}
+
+#prospectiveStudents
+{
+	float: right;
+	width: 48%;
+	padding-left: 3px;
+	padding-right: 5px;
+	height: 100%;
+	text-align: left;
+}
+
+#contactMK
+{
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#contactMK.phone
+{
+	font-size: 20px;
+}
+
+
+/*	============================= EVENTS ====================== */
+
+#contentMain.events
+{
+	text-align: left;
+	padding: 15px;
+}
+
+#eventsheading
+{
+	margin-top: -40px;
+	text-align: center;
+	padding-right: 265px;
+}
+
+#contentMain.events h5
+{
+	border-bottom: 1px solid #BBB;
+	padding-top: 5px;
+}
+
+#contentMain.events p
+{
+	font-size: 14px;
+	font-style: normal;
+}
+/*	============================== BIO ========================= */
+
+#contentMain b
+{
+	color: #254D96;
+}
+
+#contentMain .bp1
+{
+	text-align: left;
+}
+
+#contentMain .bp2
+{
+	text-align: left;
+}
+
+#contentMain .bp3
+{
+	text-align: left;
+}
+
+#contentMain .biopic
+{
+	width: 286px;
+	height: 381px;
+	margin-top: 2px;
+	margin-right: 12px;
+	margin-left: 2px;
+	margin-bottom: 10px;
+	background-image: url(me.jpg);
+	position: relative; 
+	border-style: solid;
+	border-color: black;
+	border-width: 10px;
+	float: left;
+	border: 2px solid black;
+}
+
+/*	=========================== RESOURCES ==================== */
+
+.resources
+{
+	text-align: center;
+}
+
+/*	============================= AUDIO ====================== */
+
+#AudioList
+{
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: left;
+	list-style: none;
+}
+
+.audio h1
+{
+	border-bottom: 1px solid #ccc;
+	margin-left: 75px;
+	margin-right: 75px;
+}
+
+.audioclips
+{
+	margin-top: 5px;
+	margin-left: -20px;
+	padding-bottom: 30px;
+	list-style: none;
+}
+
+/*	============================= STUDIO ====================== */
+
+/*	===========   Directories   ===========		*/
+
+#contentMain.studio h5
+{
+	border-bottom: 1px solid #BBB;
+	padding-top: 5px;
+}
+
+#location
+{
+	position: absolute;
+	margin-left: 408px;
+	margin-top: -300px;
+	width: 173px;
+	text-align: center;
+}
+
+#studentlist
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 12px;
+}
+
+#studentlist h3
+{
+	text-align: center;	
+}
+
+#studentlist p
+{
+	padding: 0 25px 0 25px;
+}
+
+.leftcol
+{
+	float: left;
+	text-align: left;
+}
+
+.rightcol
+{
+	text-align: center;
+	float: right;
+}
+
+.listbar
+{
+	background-color: #6c8396;
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 1px;
+}
+
+/* == Slideshows == */
+
+#topslidecontainer
+{	
+	margin-top: 8px;
+	margin-bottom: 20px;
+	width: 402px;	
+}
+
+#topfadeshow
+{
+	border: 1px solid black;
+}
+
+/* === Student Bio === */
+
+#studentInfoContainer
+{	
+	position: relative;
+	margin-top: 20px;
+	padding: 5px;
+	width: 270px;
+	background-color: #ddd;
+	border: 1px solid #aaa;
+}
+
+#slideImg
+{
+	cursor: pointer;
+	margin-bottom: -25px;
+}
+
+#studentInfo
+{
+	padding: 5px;
+	text-align: left;
+}
+
+#curcount
+{
+	display: none;
+}
+
+.prev
+{
+	float: left;
+	cursor: pointer;
+}
+
+.next
+{
+	float: right;
+	cursor: pointer;
+}
+
+/* === Student Table === */
+
+
+#studentlistleft td
+{
+	cursor: pointer;
+}
+
+#studentlistleft tr:hover
+{
+	font-weight: bold;
+}
+
+#studentlistleft th
+{
+	font-size: larger;
+	border-bottom: 1px solid black;
+}
+
+#leftarrow
+{
+	position: relative;
+	left: 129px;
+	bottom: 10px;
+}
+
+#rightarrow
+{
+	position: relative;
+	right: 9px;
+	top: 10px;
+}
+
+.activeStudentCell
+{
+	background-image: url(Images/Icons/stdntarrow.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	font-weight: bold;
+	color: #254D96;
+}
+
+.activeInstCell
+{
+	background-image: url(Images/Icons/stdntarrowL.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	font-weight: bold;
+	color: #254D96;
+}
+
+.studentCell
+{
+	text-align: left;
+	width: 125px;
+}
+
+.InstCell
+{
+	width: 130px;
+	text-align: right;
+}
+
+.slidecontrol
+{
+	margin-top: 2px;
+	font-size: small;
+	text-align: center;
+	min-height: 5px;
+}
+
+/*	============================   Nav Bar   ======================		*/
+
+#navcontainer 
+{
+	color: #fff;
+	filter:alpha(opacity=50);
+	-moz-opacity:0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	height: 24px;
+	background-color: #6c8396;
+	position: relative;
+}
+
+#navcontainer a
+{
+	color: #FFF;
+}
+
+ul#navlist
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	white-space: nowrap;
+}
+
+ul#navlist li
+{
+	float: left;
+	font-family: verdana, arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	margin: 0;
+	padding: 5px 0px 5px 0px; 
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+#navlist a, #navlist a:link
+{
+	margin: 0;
+	padding: 5px 23px 5px 23px;
+	color: #fff;
+	text-decoration: none;
+}
+
+ul#navlist li.active
+{
+	color: #fff; 
+	background-color: #0b2541; 
+}
+
+#navlist a:hover
+{
+	color: #fff;
+	background-color: #0b2541;
+}
