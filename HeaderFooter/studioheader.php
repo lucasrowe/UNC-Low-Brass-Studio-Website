@@ -33,6 +33,9 @@ ID.
 
 	/**
 		PHP Code for finding all slideshow images.
+		
+		Searches $imageDir for all files of varying types, but isn't too forgiving.
+		Only accepts .png .PNG .jpg. and .JPG.
 	*/
 	<?php
 	$imageDir = "./Images/Slideshow/";
@@ -82,6 +85,8 @@ ID.
 			echo("myImageArray.push(tempAr);" );
 			$countImgs += 1;
 		}
+		
+		echo("myImageArray.sort()"); //sort our slideshow alphabetically
 		
 	}				
 	?>
