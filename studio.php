@@ -89,7 +89,7 @@ NO NEED TO EDIT ANYTHING BELOW THIS LINE
 			</div>
 		
 			<div id="studentImage">
-				<img id="slideImg" name="slideImg" src="Images/StudentPics/JoeyAloi.png" 
+				<img id="slideImg" name="slideImg" src="Images/StudentPics/JoeyAloi.jpg" 
 					alt ="student picture" onclick="nextImage('slideImg'); " />
 			</div>		
 			

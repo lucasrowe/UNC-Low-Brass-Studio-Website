@@ -161,19 +161,54 @@ Student Image Slideshow
 		$NamesNoSpaces = explode("<br/><br/>", $nospaces);
 		
 	?>
-	var SlideImages = [];	
+		var SlideImages = [];	
 	
 	<?php	
 		//Populate the student images in the javascript array.
+		//Student Images are in firstnamelastname.xyz format and should
+		//be either JPG or PNG
 		for ($i=0; $i<sizeof($NamesNoSpaces); $i++)
 		{
 			$explodeName = explode("<br/>", $NamesNoSpaces[$i]);
-			$tempPicName = $explodeName[0] . ".png";
+			$tempPicName = $explodeName[0];
 			
-			if ( file_exists($studentImageDir . $tempPicName) )
-				echo "SlideImages.push('" . $tempPicName . "');";
+			if ( file_exists($studentImageDir . $tempPicName . ".jpg") )
+			//Creates a new Image object, causing images to be preloaded 
+			//If the image is not found, it will load a default image
+			{
+				echo "tempPic = new Image();";
+				echo "tempPic.src = '" . $studentImageDir . $tempPicName . ".jpg';";
+				echo "SlideImages.push(tempPic);";
+			}
+			else if ( file_exists($studentImageDir . $tempPicName . ".JPG") )
+			//Creates a new Image object, causing images to be preloaded 
+			//If the image is not found, it will load a default image
+			{
+				echo "tempPic = new Image();";
+				echo "tempPic.src = '" . $studentImageDir . $tempPicName . ".JPG';";
+				echo "SlideImages.push(tempPic);";
+			}			
+			else if ( file_exists($studentImageDir . $tempPicName . ".png") )
+			//Creates a new PNG Image object, causing images to be preloaded 
+			{
+				echo "tempPic = new Image();";
+				echo "tempPic.src = '" . $studentImageDir . $tempPicName . ".png';";
+				echo "SlideImages.push(tempPic);";
+			}
+			else if ( file_exists($studentImageDir . $tempPicName . ".PNG") )
+			//Creates a new PNG Image object, causing images to be preloaded 
+			{
+				echo "tempPic = new Image();";
+				echo "tempPic.src = '" . $studentImageDir . $tempPicName . ".PNG';";
+				echo "SlideImages.push(tempPic);";
+			}			
 			else
-				echo "SlideImages.push('MissingStudentPic.png');";
+			//If the image is not found, it will load a default image			
+			{
+				echo "tempPic = new Image();";
+				echo "tempPic.src = '" . $studentImageDir . "MissingStudentPic.jpg';";
+				echo "SlideImages.push(tempPic);";
+			}
 		}
 	}
 	?>
@@ -243,24 +278,17 @@ Student Image Slideshow
 	}
 	
 	/* Functionality begins here */
-
-	var imageDir = "./Images/StudentPics/";
 	var imageNum = 0;	
 	var globalCurrentNum = 0;
 	var i=0;
-	
-	for (i=0;i<StudentData.length;i++)
-	{
-		imageArray[imageNum++] = imageDir + SlideImages[i];	
-	}
 			
-	var totalImages = imageArray.length;	
-	
+	var totalImages = SlideImages.length;	
+
 	function getNextImage()
 	{
 		imageNum = (globalCurrentNum+1) % totalImages;
 	
-		var new_image = imageArray[imageNum];	
+		var new_image = SlideImages[imageNum].src;	
 
 		updateCountMsg(imageNum);	
 		updateCaptionMsg(imageNum);
@@ -273,7 +301,7 @@ Student Image Slideshow
 	{
 		imageNum = (globalCurrentNum-1+totalImages) % totalImages;
 		
-		var new_image = imageArray[imageNum];
+		var new_image = SlideImages[imageNum].src;
 		
 		updateCountMsg(imageNum);	
 		updateCaptionMsg(imageNum);
@@ -300,7 +328,7 @@ Student Image Slideshow
 	
 	function updateImage(place, currentNum)
 	{
-		var new_image = imageArray[currentNum];
+		var new_image = SlideImages[currentNum].src;
 		
 		document[place].src = new_image;
 	}
