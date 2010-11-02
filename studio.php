@@ -26,7 +26,7 @@ images are accepted but won't necessarily look good.
 Image size: 401 x 267
 
 STUDENT DIRECTORIES:
-In order to add a student you will need to open studentinfo.html and then
+In order to add a student you will need to open studentinfo.txt and then
 put a breakline in front of your student entry.  Breaklines should only
 be used when you are done with a piece of information or are starting a new student.
 For labels, put a colon after your label text.
