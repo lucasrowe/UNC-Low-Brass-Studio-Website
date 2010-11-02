@@ -122,8 +122,8 @@ Student Image Slideshow
 */	
 	
 	imageArray = new Array();
-	/* Start by parsing the student file and setting up our data structures */
-	
+
+	/* Start by parsing the student file and setting up our data structures */	
 	<?php	
 	parseFile();
 	
@@ -131,12 +131,15 @@ Student Image Slideshow
 	Function looks at studentinfo.html and parses it into clean strings.  The file
 	is broken into chunks of students (separated by two breaklines), names (first line of each student),
 	and names with no spaces (spaces removed from name element).
+	
+	Php is used to parse the file because we wanted to take advantage of its server-side file handling
+	to check file_exists.  This could have also been accomplished using more complicated Javascript.
 	*/
 	function parseFile()
 	{	
 		global $studentImageDir;	
 		//Parse the studentinfo file, converting HTML characters, end lines, and then cleaning bad chars
-		$rawfile = file_get_contents("./studentinfo.html", "r");
+		$rawfile = file_get_contents("./studentinfo.txt", "r");
 		$explodeFile = explode("START HERE-->", $rawfile);
 		$cleanInProgress = $explodeFile[1];	
 		
@@ -160,10 +163,10 @@ Student Image Slideshow
 		
 		$NamesNoSpaces = explode("<br/><br/>", $nospaces);
 		
-	?>
+		?>
 		var SlideImages = [];	
 	
-	<?php	
+		<?php	
 		//Populate the student images in the javascript array.
 		//Student Images are in firstnamelastname.xyz format and should
 		//be either JPG or PNG
@@ -212,17 +215,20 @@ Student Image Slideshow
 		}
 	}
 	?>
-		
-	//Store the student captions into a Javascript array variable
-	var StudentData = finalString.split("<br/><br/>");	
-
-	//Parse out arrays for students and their instruments.  This will be used
-	//for the student directory table.
 	
+	/* =================== Student Objects ================== */
+	// In the section below we split out the blob of text parsed from the file
+	// into usable arrays.
+	
+	var StudentData = finalString.split("<br/><br/>");	//Store the unparsed student captions into a Javascript array variable
 	var StudentNames = [];
 	var StudentInstruments = [];
-	var StudentCaptions = [];
 	
+	var StudentCaptions = [];
+	var imageNum = 0;	
+	var globalCurrentNum = 0;
+	var i=0;
+				
 	//Parse out the name, instrument, and caption from each block of text.
 	//This code is very fickle so to make it handle problems better, we blank out any data missing a student name
 	for (i=0; i<StudentData.length; i++)
@@ -245,7 +251,7 @@ Student Image Slideshow
 			{
 				for (k=0; k<parsedLine.length; k++)
 				{
-					if (k==0)
+					if (k === 0)
 					{
 						tempCaption = tempCaption + "<b>" + parsedLine[k] + ":</b>";
 					}
@@ -278,10 +284,7 @@ Student Image Slideshow
 	}
 	
 	/* Functionality begins here */
-	var imageNum = 0;	
-	var globalCurrentNum = 0;
-	var i=0;
-			
+
 	var totalImages = SlideImages.length;	
 
 	function getNextImage()
@@ -321,8 +324,8 @@ Student Image Slideshow
 		studentNameInstElmnt = document.getElementById("nameInstrument");
 		studentCaptionElmnt = document.getElementById("studentCaption");
 		
-		studentNameInstElmnt.innerHTML = "<h5>" + StudentNames[currentNum] + "</h5><br/>" 
-			+ StudentInstruments[currentNum] + "<br/><br/>" ;
+		studentNameInstElmnt.innerHTML = "<h5>" + StudentNames[currentNum] + "</h5><br/>" + 
+					StudentInstruments[currentNum] + "<br/><br/>" ;
 		studentCaptionElmnt.innerHTML = StudentCaptions[currentNum];
 	}
 	
@@ -347,10 +350,10 @@ Student Image Slideshow
 		// Replace the previously active cells with standard student and inst cells.
 		var oldStudentCell = tableElmnt.rows[oldStudentRowNum].insertCell(-1);
 		var oldInstrumentCell = tableElmnt.rows[oldStudentRowNum].insertCell(-1);
-		oldStudentCell.innerHTML = "<div class=\"studentCell\">&nbsp;&nbsp;" 
-					+ StudentNames[globalCurrentNum] + "</div>";
-		oldInstrumentCell.innerHTML = "<div class=\"InstCell\">" 
-					+ StudentInstruments[globalCurrentNum] + "&nbsp;&nbsp;</div>";		
+		oldStudentCell.innerHTML = "<div class=\"studentCell\">&nbsp;&nbsp;" + 
+					StudentNames[globalCurrentNum] + "</div>";
+		oldInstrumentCell.innerHTML = "<div class=\"InstCell\">" + 
+					StudentInstruments[globalCurrentNum] + "&nbsp;&nbsp;</div>";		
 		
 		tableElmnt.rows[oldStudentRowNum].deleteCell(0);
 		tableElmnt.rows[oldStudentRowNum].deleteCell(0);
@@ -358,10 +361,10 @@ Student Image Slideshow
 		// Replace the newly selected cells with active cell classes.
 		var newStudentCell = tableElmnt.rows[newStudentRowNum].insertCell(-1);
 		var newInstrumentCell = tableElmnt.rows[newStudentRowNum].insertCell(-1);
-		newStudentCell.innerHTML = "<div class=\"studentCell activeStudentCell\">&nbsp;&nbsp;"
-					+ StudentNames[currentNum] + "</div>";
-		newInstrumentCell.innerHTML = "<div class=\"InstCell activeInstCell\">" 
-					+ StudentInstruments[currentNum] + "&nbsp;&nbsp;</div>";	
+		newStudentCell.innerHTML = "<div class=\"studentCell activeStudentCell\">&nbsp;&nbsp;" + 
+					StudentNames[currentNum] + "</div>";
+		newInstrumentCell.innerHTML = "<div class=\"InstCell activeInstCell\">" + 
+					StudentInstruments[currentNum] + "&nbsp;&nbsp;</div>";	
 		
 		tableElmnt.rows[newStudentRowNum].deleteCell(0);
 		tableElmnt.rows[newStudentRowNum].deleteCell(0);
@@ -412,12 +415,12 @@ Student Image Slideshow
 		for (i=0; i<StudentData.length; i++)
 		{
 			IDString = "<tr id=\"student" + i + "\" onclick=\"updateBio(" + i + ",'slideImg');\">";
-			activeStudentTDs = "<td><div class=\"StudentCell activeStudentCell\">&nbsp;&nbsp;" 
-				+ StudentNames[i] + "</div></td>"
-				+ "<td><div class=\"InstCell activeInstCell\">" 
-				+ StudentInstruments[i] + "&nbsp;&nbsp;</div></td></tr>";
-			studentTDs = "<td><div class=\"studentCell\">&nbsp;&nbsp;" + StudentNames[i]
-				+ "</div></td><td><div class=\"InstCell\">" + StudentInstruments[i] + "&nbsp;&nbsp;</div></td></tr>";
+			activeStudentTDs = "<td><div class=\"StudentCell activeStudentCell\">&nbsp;&nbsp;" + 
+				StudentNames[i] + "</div></td>" + 
+				"<td><div class=\"InstCell activeInstCell\">" + 
+				StudentInstruments[i] + "&nbsp;&nbsp;</div></td></tr>";
+			studentTDs = "<td><div class=\"studentCell\">&nbsp;&nbsp;" + StudentNames[i] + 
+				"</div></td><td><div class=\"InstCell\">" + StudentInstruments[i] + "&nbsp;&nbsp;</div></td></tr>";
 			
 			if (i==globalCurrentNum)
 			{
@@ -437,7 +440,7 @@ Student Image Slideshow
 	
 </head>
 
-<body onload="updateCountMsg(0); updateCaptionMsg(0);fillTable();">
+<body onload=" updateCountMsg(0); updateCaptionMsg(0); fillTable(); ">
 
 <script type="text/javascript">
 

@@ -11,7 +11,7 @@ Feel free to edit the text on this page below here as you see fit.
 Just make sure to save it as .php
 =================================================================== -->	
 	
-	<img class="biopic" src="Images/BioPic.png" alt="Michael Kris" />	
+	<img class="biopic" src="Images/BioPic.jpg" alt="Michael Kris" />	
 	<p class="bp1">
 		<b>Michael Kris</b> is the instructor of low brass and 
 		director of brass chamber music at the University of North Carolina at Chapel Hill.  
