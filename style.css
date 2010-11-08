@@ -48,7 +48,7 @@ a:visited
 {
 	width: 600px;
 	height: 60px;
-	background-image: url(Images/Banners/MainBan.png);
+	background-image: url(Images/Banners/MainBan.jpg);
 	background-color: #AEBDC4;
 }
 
@@ -56,7 +56,7 @@ a:visited
 {
 	width: 600px;
 	height: 442px;
-	background-image: url(Images/Banners/EventsBan.png); 
+	background-image: url(Images/Banners/EventsBan.jpg); 
 	margin-top: -24px;
 	margin-bottom: -370px;
 	
@@ -66,7 +66,7 @@ a:visited
 {
 	width: 600px;
 	height: 180px;
-	background-image: url(Images/Banners/BioBan.png);
+	background-image: url(Images/Banners/BioBan.jpg);
 	margin-top: -24px;
 	margin-bottom: -5px;
 }
@@ -75,7 +75,7 @@ a:visited
 {
 	width: 600px;
 	height: 150px;
-	background-image: url(Images/Banners/ResourceBan.png);
+	background-image: url(Images/Banners/ResourceBan.jpg);
 	margin-top: -24px;
 	margin-bottom: -25px;
 }
@@ -84,7 +84,7 @@ a:visited
 {
 	width: 600px;
 	height: 150px;
-	background-image: url(Images/Banners/AudioBan.png);
+	background-image: url(Images/Banners/AudioBan.jpg);
 	margin-top: -24px;
 	margin-bottom: -30px;
 }
@@ -159,7 +159,7 @@ a:visited
 {
 	min-height: 755px;
 	text-align: center;
-	background-image: url(Images/Banners/HomeBan.png);	
+	background-image: url(Images/Banners/HomeBan.jpg);	
 }
 
 .home h4
@@ -261,7 +261,6 @@ a:visited
 	margin-right: 12px;
 	margin-left: 2px;
 	margin-bottom: 10px;
-	background-image: url(me.jpg);
 	position: relative; 
 	border-style: solid;
 	border-color: black;
