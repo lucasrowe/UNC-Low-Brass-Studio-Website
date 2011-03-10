@@ -55,35 +55,55 @@ ID.
 		global $studentImageDir;		
 		global $countImgs;
 		global $countStudents;
+		
+		//Set up arrays of found images
+		//This is being done ahead of the for statements since UNC's system
+		//I think took the empty globs as FALSE instead of an empty array.
+		$slideshow_pngs = glob($imageDir . "*.png");
+		$slideshow_bigPNGs = glob($imageDir . "*.PNG");
+		$slideshow_jpgs = glob($imageDir . "*.jpg");
+		$slideshow_bigJPGs = glob($imageDir . "*.JPG");
 		//global $fullImageDir;
 
 		// Build top slideshow array
-		foreach (glob($imageDir . "*.png") as $png) {
-			//tempAr will be populated into the slideshow javascript
-			//the first element is the thumbnail
-			//the second element is the large image file
-			//echo("tempAr = ['$png', '" . substr_replace($png, $fullImageDir, 0, strlen($imageDir)) . "'];");	
-			echo("tempAr = ['$png', '$png'];");			
-			echo("myImageArray.push(tempAr);" );
-			$countImgs += 1;
-		}	
+		if ($slideshow_pngs and !empty($slideshow_pngs))
+		{
+			foreach ($slideshow_pngs as $png) {
+				//tempAr will be populated into the slideshow javascript
+				//the first element is the thumbnail
+				//the second element is the large image file
+				//echo("tempAr = ['$png', '" . substr_replace($png, $fullImageDir, 0, strlen($imageDir)) . "'];");	
+				echo("tempAr = ['$png', '$png'];");			
+				echo("myImageArray.push(tempAr);" );
+				$countImgs += 1;
+			}
+		}
 		
-		foreach (glob($imageDir . "*.PNG") as $png) {
-			echo("tempAr = ['$png', '$png'];");					
-			echo("myImageArray.push(tempAr);" );
-			$countImgs += 1;
-		}	
-		
-		foreach (glob($imageDir . "*.jpg") as $jpg) {
-			echo("tempAr = ['$jpg', '$jpg'];");				
-			echo("myImageArray.push(tempAr);" );
-			$countImgs += 1;
-		}	
-		
-		foreach (glob($imageDir . "*.JPG") as $jpg) {
-			echo("tempAr = ['$jpg', '$jpg'];");				
-			echo("myImageArray.push(tempAr);" );
-			$countImgs += 1;
+		if ($slideshow_bigPNGs and !empty($slideshow_bigPNGs))
+		{		
+			foreach ($slideshow_bigPNGs as $png) {
+				echo("tempAr = ['$png', '$png'];");					
+				echo("myImageArray.push(tempAr);" );
+				$countImgs += 1;
+			}	
+		}
+
+		if ($slideshow_jpgs and !empty($slideshow_jpgs))
+		{		
+			foreach ($slideshow_jpgs as $jpg) {
+				echo("tempAr = ['$jpg', '$jpg'];");				
+				echo("myImageArray.push(tempAr);" );
+				$countImgs += 1;
+			}	
+		}
+
+		if ($slideshow_bigJPGs and !empty($slideshow_bigJPGs))
+		{		
+			foreach ($slideshow_bigJPGs as $jpg) {
+				echo("tempAr = ['$jpg', '$jpg'];");				
+				echo("myImageArray.push(tempAr);" );
+				$countImgs += 1;
+			}
 		}
 		
 		echo("myImageArray.sort()"); //sort our slideshow alphabetically
