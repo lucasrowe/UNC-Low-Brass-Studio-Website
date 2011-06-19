@@ -5,9 +5,9 @@
 
 	<div id="topslideshowcontrols" class="slidecontrol">	
 		<div id="fadeshow1toggler">
-			<img class="prev" src="http://i31.tinypic.com/302rn5v.png" alt="leftarrow"/>
+			<img class="prev" src="Images/Icons/bigarrowL.png" alt="leftarrow"/>
 		<span class="status"></span>
-			<img class="next" src="http://i30.tinypic.com/lzkux.png" alt="rightarrow"/>
+			<img class="next" src="Images/Icons/bigarrow.png" alt="rightarrow"/>
 		</div>				
 	</div>
 </div>
@@ -83,8 +83,8 @@ NO NEED TO EDIT ANYTHING BELOW THIS LINE
 			<div id="slideshowcontrols">	
 				<span id="curcount"></span>
 				<span id="controlbtns">
-					<img id="previousStudentBTN" class="prev" src="http://i31.tinypic.com/302rn5v.png" alt="leftarrow" onclick="prevImage('slideImg');"/>
-					<img id="nextStudentBTN" class="next" src="http://i30.tinypic.com/lzkux.png" alt="rightarrow" onclick="nextImage('slideImg');"/>
+					<img id="previousStudentBTN" class="prev" src="Images/Icons/bigarrowL.png" alt="leftarrow" onclick="prevImage('slideImg');"/>
+					<img id="nextStudentBTN" class="next" src="Images/Icons/bigarrow.png" alt="rightarrow" onclick="nextImage('slideImg');"/>
 				</span>
 			</div>
 		
