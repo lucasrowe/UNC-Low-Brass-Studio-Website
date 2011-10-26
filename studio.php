@@ -54,7 +54,7 @@ Quote: The whole quote must be on one line.  It will wrap automatically when dis
 <div id ="studentlist" style="min-height: 600px;">	<!-- EDIT THE HEIGHT IF NEEDED -->
 	<h3>Student Directory</h3>
 
-	<p>Below are the 2010/2011 lowbrass studio members.  For biographical and contact information, 
+	<p>Below are the 2011/2012 lowbrass studio members.  For biographical and contact information, 
 	click the left column names to view photo and bio on right.</p>
 
 <!-- ====================================
