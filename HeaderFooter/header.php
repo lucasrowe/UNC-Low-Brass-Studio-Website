@@ -6,9 +6,18 @@ This file is the code for the top of every page except Studio.  It shouldn't nee
 to be changed for any reason other than perhaps changing the Google Analytics ID.
 =================================================================== -->
 <head> 
-	<title>UNC Low Brass Studio</title> 
-	<link rel="stylesheet" type="text/css" href="./style.css" /> 
+    <title>UNC Low Brass Studio for Trombone, Euphonium, and Tuba</title> 
+    <link rel="stylesheet" type="text/css" href="./style.css" /> 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />	
+    <meta name="keywords"
+	  content="trombone, euphonium, tuba, low brass, low-brass, UNC, tbone, brass chamber music, student" />
+    <meta name="description" 
+	  content="The resource for current and future students studying 
+		   trombone, euphonium, or tuba at UNC, the University of North 
+		   Carolina Chapel Hill." />
+    <meta name="author" content="Michael Kris" />
+    <meta name="copyright" content="January 2012" />
+
 </head> 
 
 <body> 
